@@ -1,4 +1,4 @@
-Bonjour :
+Bonjour;
 Vous venez d'entrer dans un monde où seul la loi du plus fort compte. Un monde où le prédateur est sans pitié envers sa proie. Un monde où seul la survie de l'espèce compte.
 Le seul dieu de ce monde est le modèle Lotka-Volterra, régissant l'évolution des populations de ce monde grâce à des équations modélisant la prédation.
 Alors oui, ce n'est qu'une modélisation ne pouvant en aucun cas representer la complexité de la réalité. Mais on peut se réduire à des modèles réalistes tirés de la vraie vie, par exemple en se limitant à 3 espèces : un proie, un prédateur et un prédateur du prédateur, on peut se rapprocher de vrai écosystèmes existants.
