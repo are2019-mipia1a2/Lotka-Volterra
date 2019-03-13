@@ -2,6 +2,7 @@ Bonjour; Vous venez d'entrer dans un monde où seul la loi du plus fort compte. 
 
 \Day 1 : Utilisation du terminal pour ajouter des fichiers depuis des fichers locaux + Début algorithme
 
-\Day 2 : Algorithme de base d'une chaine alimentaire selon les equations de lotka-volterra : 
+\Day 2 : Algorithme de base d'une chaine alimentaire selon les equations de lotka-volterra + création du terrain: 
 
-Après avoir realiser une version basique de l'évolution de population sur une generation, aujourd'hui nous avons codé un algorithme plus general qui concerne les chaines alimentaires constituées d'un nombre de populations distinctes n > 2, le long de N generations. Pour cela nous avons pris la moyenne des effet qu'on la proie et le predateur sur une espèce située dans la chaine (sauf aux extrémités). Cette fonction nous retourne la resultante des equations a chaque generation que l'on pourra ensuite représenter sur des graphes.
+Après avoir realisé une version basique de l'évolution de population sur une génération, aujourd'hui nous avons codé un algorithme plus general qui concerne les chaines alimentaires constituées d'un nombre de populations distinctes n > 2, le long de N generations. Pour cela nous avons pris la moyenne des effet qu'on la proie et le predateur sur une espèce située dans la chaine (sauf aux extrémités). Cette fonction nous retourne la resultante des equations a chaque generation que l'on pourra ensuite représenter sur des graphes.
+\Nous avons aussi codé le terrain et l'avons représenté, ainsi celui-ci est différent à chaque fois qu'on en utilise un nouveau et dépend de sa position (plaine, foret ou montagne). Sur le terrain, on peut voir les emplacements de la végétation.
