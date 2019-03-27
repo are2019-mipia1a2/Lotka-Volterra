@@ -12,3 +12,6 @@ On va la prochaine fois se focaliser sur le dynamisme de la matrice selon les eq
 \Nous avons aussi codé la vision des animaux, ceux-ci ont seulement un périmètre dépendant de l'espèce. Ainsi nous avons pu coder les déplacements des animaux en fonction de la position de leur cible (soit proie soit autre animal pour la reproduction). Nous avons crée un dictionnaire des plantes, chaque plante étant représenté par une clé, et ayant une "jauge de vie".
 
 Day 4 : Modification de la fonction déplacement à l'aide lde la fonction pop
+
+On a commencé a écrire l'algorithme qui nous permet de mettre à jour la matrice en fonction de l'évolution du nombre de population de chaque éspèce et des paramétres de chaque individu. La difficulté principale sera de fusionner ces deux modèles en restant coherent.
+En effet, le modèle de prédation décrit l'évolution de la population comme un tout; alors que notre modèle se concentre sur chaque individu. La solution à ce problème serait d'utiliste le modèle de lotka volterra afin de changer le nombre de population dans notre matrice alors que notre modèle (dictionnaire {éspèce : [age, fin]}) nous permettera de mettre a jour la disposition spaciale des populations.
