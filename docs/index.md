@@ -10,3 +10,5 @@ Après avoir realisé une version basique de l'évolution de population sur une 
 Day 3 : Aujourd'hui nous nous sommes focalisés surtout sur l'interface graphique. Nous avons représenté les populations sous formes de matrices carrées. Chaque élément de la matrice était soit occupé (Animal ou vegetation, signifié par sa signature) ou vacant (0). On commence par créer la matrice nulle de dimentions souhaitées, et on utilise "random" pour parcourir aléatoirement la matrice et ajouter la signature de chaque éspèce à la place des 0. On a ensuite transformé la matrice en tableau de couleur.
 On va la prochaine fois se focaliser sur le dynamisme de la matrice selon les equations de lotka volterra et de la position des individus.
 \Nous avons aussi codé la vision des animaux, ceux-ci ont seulement un périmètre dépendant de l'espèce. Ainsi nous avons pu coder les déplacements des animaux en fonction de la position de leur cible (soit proie soit autre animal pour la reproduction). Nous avons crée un dictionnaire des plantes, chaque plante étant représenté par une clé, et ayant une "jauge de vie".
+
+Day 4 : Modification de la fonction déplacement à l'aide lde la fonction pop
