@@ -15,3 +15,9 @@ Day 4 : Modification de la fonction déplacement à l'aide lde la fonction pop
 
 On a commencé a écrire l'algorithme qui nous permet de mettre à jour la matrice en fonction de l'évolution du nombre de population de chaque éspèce et des paramétres de chaque individu. La difficulté principale sera de fusionner ces deux modèles en restant coherent.
 En effet, le modèle de prédation décrit l'évolution de la population comme un tout; alors que notre modèle se concentre sur chaque individu. La solution à ce problème serait d'utiliste le modèle de lotka volterra afin de changer le nombre de population dans notre matrice alors que notre modèle (dictionnaire {éspèce : [age, fin]}) nous permettera de mettre a jour la disposition spaciale des populations.
+
+
+
+Day 5 : Conception d'une map n'utilisant pas les formules de Lokta Volterra au cas ou la map avec les formules ne fonctionnerait pas. 
+Mise en forme et fusion de toutes les algorythmes avec ajustement des fonctions. Correction de quelques erreurs dans les fonctions faites préalablement en observant les problèmes de déplacement sur les terrains. Première visualisation des déplacements sur un terrain de taille 16x16 avec 3 especes de chaque individus.
+Nous avons presque finis avec l'algorithme de base; à part quelques bugs à règler. Il faudra maintenant implémanter cet algorithme dans un interface graphique. 
