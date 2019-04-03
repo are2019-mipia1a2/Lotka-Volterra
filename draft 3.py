@@ -1,3 +1,4 @@
+
 import random
 import numpy as np
 def lotka_volterra_one_gen(proie, pred, a1, b1, c1 ,d1) :
@@ -57,6 +58,7 @@ def invert(L):
             L2.append(k[i])
         L1.append(L2)
     return L1
+
             
             
 
@@ -69,7 +71,7 @@ def lotka_volterra_chain_n_gen(L_pop, L_abcd, n):
     return L_all, L
 
 a = 10
-b = 12
+b = 12          
 c = 10
 d = 1
 
@@ -93,6 +95,7 @@ def create_empty_land(n):
             L1.append(0)
         L.append(L1)
     return L
+
 
 def Merge_matrix(M1, M2):
     L = []
@@ -137,10 +140,42 @@ b =create_occupied_land(300, create_empty_land(70),2)
 a =create_occupied_land_ecosystem([1000,400, 700], [1, 3, 4], 70)
 
 c = Merge_matrix(a, b)
-
+print(c) 
 Double_liste=Merge_matrix(a, b)
 
-def affichage(matrice) :
+import math
+Ligne=16
+Colonne=16
+def perimetre_vision(per,i,j, cible,Terrain) : #s'applique sur un animal de position (i,j) qui cherche une proie de valeur cible
+    temp=[]
+    npsh =0
+    npsd =0
+    npsg =0
+    npsb =0
+    if i-per<0 :
+        npsg=abs(i-per)      #npsg : ne pas sortir à gauche
+    if i+per>len(Terrain[0]) :
+        npsd = i+per-len(Terrain[0])     #npsd : ne pas sortir à droite
+    if j-per<0 :
+        npsh=abs(j-per)                 #npsh : ne pas sortir en haut
+    if j+per>len(Terrain) :
+        npsb = j+per-len(Terrain)      #npsb : ne pas sortir en bas
+    for ligne in range(i-per+npsg,i+per-npsd-1):
+        for colonne in range(j-per+npsh, j+per-npsb+1):
+            #print("ligne :",ligne,"colonne :",colonne,"valeur :",Terrain[ligne,colonne])
+            if cible in Terrain[ligne,colonne] :
+                if len(temp)==0 :
+                    temp=[ligne, colonne]
+                if math.sqrt((i-ligne)**2+(j-colonne)**2)<math.sqrt((i-temp[0])**2+(j-temp[1])**2) :
+                    temp=[ligne, colonne]
+    return temp
+b = create_occupied_land_ecosystem([30, 30, 12], [0, 1, 2], 10)
+c = create_occupied_land_ecosystem([40], [3], 10)
+a = Merge_matrix(b, c)
+print(perimetre_vision(1, 6, 7, 1,a))
+
+
+def affichage(matrice):
     """permet d'afficher le terrain uniquement"""
     img=[]
     for j in matrice :
@@ -149,7 +184,7 @@ def affichage(matrice) :
            i=0
            for e in k:
                if e>i:
-                   i=e  
+                   i=e          
            if i==0:
                 temp.append((51,153,0))  #vert
            elif i==1:
@@ -165,23 +200,105 @@ def affichage(matrice) :
     plt.show()
     return 
 
-
-
-affichage(c)
-
-
-def dynamic_change(Matrix,dif_prey, dif_pred,a, b)
-    a = min(dif_prey, dif_pred) 
-    for i in range(a):
-        random.randoint
-    
-    
-
-
-
-
-
-
+def update_occupied_land(Matrice, list_number_in, list_number_fin, List_of_signatures, dict, plant_signature):
+    List_dif = []
+    for i in range(len(list_number_in)):
+        a = list_number_in[i] - list_number-fin[i]
+        List_dif.append(a)
+    for i in range(len(List_of_signatures)):
+        a = list_dif[i]
+        while a != 0:
+                for j in Matrice:
+                    for k in i:
+                        l = Matrice[j][k][0]
+                        if a  != 0:
+                            if l == List_of_signatures[i]:
+                                if random.randint(1, list_number_in[i]) >= list_number_in[i] // random.randint(1,5)  :
+                                    if a != 0:
+                                        if i == 0:
+                                            if dict[j+"-"+k][1] == 0:
+                                                Matrice[j][k][0] = 0 
+                                                a = a + 1
+                                            if dict[j+"-"+k][0] > 15:
+                                                Matrice[j][k][0] = 0
+                                            elif random.randint(1, list_number_in[i]) >= list_number_in[i] // random.randint(1,5): 
+                                                Matrice[j][k][0] = 0 
+                                                a = a + 1
+                                            elif random.randint(1, list_number_in[i]) >= list_number_in[i] // random.randint(1,5):
+                                                b=perimètre_vision(1, j, k, List_of_signatures[i+1])
+                                                if len(b) == 2:
+                                                    Matrice[b[0]][b[1]].append(List_of_signatures[i])
+                                            elif  random.randint(1, list_number_in[i]) >= list_number_in[i] // random.randint(1,5):
+                                                b=perimètre_vision(1, j, k, List_of_signatures[i])
+                                                c=perimètre_vision(1, j, k,0)
+                                                if len(b) == 2:
+                                                    d = perimètre_vision(1, b[0], b[1], List_of_signatures[i])
+                                                if len(b) == 2 and len(c) == 2 and len(d) == 2 :
+                                                    Matrice[c[0]][c[1]].append(List_of_signatures[i])
+                                                    a = a - 1
+                                        elif i == len(List_of_signatures) - 1:
+                                            if List_of_signatures[i-1] in Matrice[j][k]:
+                                                Matrice[j][k][0] = List_of_signatures[i-1]
+                                                Matrice[j][k] = Matrice[j][k][0:2]
+                                                a = a + 1
+                                            if dict[j+"-"+k][1] == 0:
+                                                Matrice[j][k][0] = 0 
+                                                a = a + 1
+                                            elif dict[j+"-"+k][0] > 15:
+                                                Matrice[j][k][0] = 0
+                                            elif  random.randint(1, list_number_in[i]) >= list_number_in[i] // random.randint(1,5):
+                                                b=perimètre_vision(1, j, k, List_of_signatures[i])
+                                                c=perimètre_vision(1, j, k,0)
+                                                if len(b) == 2:
+                                                    d = perimètre_vision(1, b[0], b[1], List_of_signatures[i])
+                                                if len(b) == 2 and len(c) == 2 and len(d) == 2 :
+                                                    Matrice[c[0]][c[1]].append(List_of_signatures[i])
+                                                    a = a - 1
+                                            elif  random.randint(1, list_number_in[i]) >= list_number_in[i] // random.randint(1,5):
+                                                b=perimètre_vision(1, j, k, List_of_signatures[i])
+                                                c=perimètre_vision(1, j, k,0)
+                                                if len(b) == 2:
+                                                    d = perimètre_vision(1, b[0], b[1], List_of_signatures[i])
+                                                if len(b) == 2 and len(c) == 2 and len(d) == 2 :
+                                                    Matrice[c[0]][c[1]].append(List_of_signatures[i])
+                                                    a = a - 1
+                                                
+                                            
+                                             
+                                        elif List_of_signatures[i-1] in Matrice[j][k]:
+                                            Matrice[j][k][0] = List_of_signatures[i-1]
+                                            Matrice[j][k] = Matrice[j][k][0:2]                                                
+                                            a = a + 1
+                                        elif random.randint(1, list_number_in[i]) >= list_number_in[i] // random.randint(1,5):
+                                             b=perimètre_vision(1, j, k, List_of_signatures[i+1])
+                                             if len(b) == 2:
+                                                 Matrice[b[0]][b[1]].append(List_of_signatures[i])
+                                        elif dict[j+"-"+k][1] == 0:
+                                            Matrice[j][k][0] = 0 
+                                            a = a + 1
+                                        elif dict[j+"-"+k][0] > 15:
+                                                Matrice[j][k][0] = 0
+                                        elif  random.randint(1, list_number_in[i]) >= list_number_in[i] // random.randint(1,5):
+                                                b=perimètre_vision(1, j, k, List_of_signatures[i])
+                                                c=perimètre_vision(1, j, k,0)
+                                                if len(b) == 2:
+                                                    d = perimètre_vision(1, b[0], b[1], List_of_signatures[i])
+                                                if len(b) == 2 and len(c) == 2 and len(d) == 2 :
+                                                    Matrice[c[0]][c[1]].append(List_of_signatures[i])
+                                                    a = a - 1
+    for i in Matrice:
+        for j in i:
+            if plant_signature in j:
+                if List_of_signatures[len(List_of_signatures)-1] in j[2:]:
+                    Matrice[i][j][1] = 0
+            elif random.randint(1, list_number_in[i]) >= list_number_in[i] // random.randint(1,5):
+                Matrice[i][j][1] = plant_signature
+    return Matrice
+                                        
+                                        
+                                     
+update_occupied_land(Matrice, list_number_in, list_number_fin, List_of_signatures, dict)                                         
+                                            
 
 
 
