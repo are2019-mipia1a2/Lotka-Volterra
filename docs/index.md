@@ -19,5 +19,9 @@ En effet, le modèle de prédation décrit l'évolution de la population comme u
 
 
 Day 5 : Conception d'une map n'utilisant pas les formules de Lokta Volterra au cas ou la map avec les formules ne fonctionnerait pas. 
-Mise en forme et fusion de toutes les algorythmes avec ajustement des fonctions. Correction de quelques erreurs dans les fonctions faites préalablement en observant les problèmes de déplacement sur les terrains. Première visualisation des déplacements sur un terrain de taille 16x16 avec 3 especes de chaque individus.
+Mise en forme et fusion de toutes les algorithmes avec ajustement des fonctions. Correction de quelques erreurs dans les fonctions faites préalablement en observant les problèmes de déplacement sur les terrains. Première visualisation des déplacements sur un terrain de taille 16x16 avec 3 especes de chaque individus.
 Nous avons presque finis avec l'algorithme de base; à part quelques bugs à règler. Il faudra maintenant implémanter cet algorithme dans un interface graphique. 
+
+
+Day 6 : Animation de l'évolution du terrain, cette animation nous permet de voir les mois défilés les uns après les autres. Recherche pour faire une interface graphique prenant en compte toutes les variables. Nous avons deux modèles différents, l'un prenant en compte les formules du modèle Lokta Volterra et l'autre basé sur la réalité. L'objectif sera de comparer ces deux modèles lors de l'oral.
+Recherche de plusieurs especes ainsi que leur caractéristique pouvant être représenter par nos modèles.
